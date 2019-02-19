@@ -1,0 +1,29 @@
+#!/bin/bash
+cd $HOME
+exec 2> /dev/null
+dirname=$1
+mkdir $dirname
+shift
+arcname=$1
+shift
+IFS=$'\n'
+while [ -n "$1" ]
+do
+result=$(find . -name "*.$1")
+for var in $result
+do
+cp --backup=numbered $var /home/anatoly/$dirname
+done
+shift
+done
+tar -cf $arcname.tar $dirname
+echo "done"
+
+
+
+
+
+
+
+
+
