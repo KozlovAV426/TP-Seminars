@@ -1,0 +1,33 @@
+#!/bin/bash
+
+git clone https://github.com/akhtyamovpavel/PatternsCollection.git
+
+git clone https://github.com/raspberrypi/tools.git
+
+mkdir CompiledProject
+
+export PATH=$PATH:$(pwd)/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/bin
+
+cd ./CompiledProject
+
+cmake -DON_PI=ON -DSYSROOT=${pwd}/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/ ../PatternsCollection/
+
+make
+
+sudo make install
+
+cd ../
+
+tar -cf archieve.tar bin-arm CompiledProject lib-arm
+
+
+
+
+
+
+
+
+
+
+
+

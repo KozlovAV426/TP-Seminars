@@ -1,0 +1,47 @@
+Часть 1.
+
+1. Необходимо запустить "CompileOnRaspberry". Скрипт склонирует репозиторий с паттернами и тулчейн для RaspberryPi, затем соберет проект под Raspberry и заархивирует получившиеся файлы.
+
+
+Часть 2.
+
+[chat]
+token=798575422:AAE-By8NLrIQ-wNtxJ_nEwPM4IEAMIYamcg
+chat_id=-1001233935290
+
+[email]
+from=ilovetpno@gmail.com
+password=ilovetp111
+
+Ссылка на канал с ботом:  https://t.me/channelfortptask
+
+Возникшие ошибки при попытке собрать проект ----- решение проблемы (Выполнялось на Ubuntu 16.04)
+
+1. Ошибка, возникающая из-за отсутствия openssl ----- установка openssl (sudo apt-get install openssl)
+
+2. Ошибка, возникающая из-за отсутствия libbost ----- установка libbost (sudo apt-get install libboost-system-dev)
+
+3. Ошибка, возникающая из-за отсутствия zlib1g-dev ----- установка zlib1g-dev (sudo apt install zlib1g=1:1.2.8.dfsg-2ubuntu4)
+
+4. Ошибка "recipe for target '/configs/config.ini' failed " ----- удаление директории CMakeFiles и файла CMakeCache.txt из директории, в которой cmake собирает проект.
+
+5. Ошибка, возникающая из-за отсутствия doxygen ----- установка doxygen (sudo apt-get install doxygen)
+
+6. Ошибка, возникающая из-за отсутствия pkg-config ----- установка pkg-config (sudo apt-get install pkg-config)
+
+7. Ошибка, возникающая из-за отсутствия gnu sasl ----- установка gnu sasl 
+
+(1. wget -q ftp://ftp.gnu.org/gnu/gsasl/gsasl-1.8.0.tar.gz 
+ 2. tar xfz gsasl-1.8.0.tar.gz
+ 3. cd gsasl-1.8.0/
+ 4. ./configure
+ 5. make
+ 6. sudo make install)
+
+8. Ошибка, возникающая из-за отсутствия gnu tls ----- установка gnu tls (sudo apt-get install gnutls-dev)
+
+9. Ошибка, возникающая из-за отсутствия sendmail ----- установка sendmail (sudo apt-get install sendmail)
+
+10. Ошибка "'boost::wrapexcept<boost::system::system_error>'what(): handshake: wrong version number" ----- необходимо поставить VPN.
+
+11. Ошибка "vmime::exceptions::socket_exception"  ----- в файле EmailNotifier.cpp, который лежит в Decorator, необходимо заменить строку vmime::utility::url url("smtp://smtp.gmail.com"); на vmime::utility::url url("smtps://smtp.gmail.com");
